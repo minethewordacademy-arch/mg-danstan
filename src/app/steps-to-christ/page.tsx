@@ -306,7 +306,7 @@ export default function StepsToChristPage() {
           </div>
         )}
         <footer className="text-center text-gray-500 dark:text-gray-400 text-sm mt-20 pt-8 border-t dark:border-gray-800">
-          © {new Date().getFullYear()} Stephen Magare Ogaro – Master Guide
+          © {new Date().getFullYear()} Elder Danstan Toel – Master Guide
           Portfolio
         </footer>
       </main>
