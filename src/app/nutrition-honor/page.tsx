@@ -80,7 +80,7 @@ export default function NutritionHonorPage() {
           }
         });
       },
-      { threshold: 0.3, rootMargin: "-20% 0px -70% 0px" }
+      { threshold: 0.3, rootMargin: "-20% 0px -70% 0px" },
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
@@ -164,15 +164,21 @@ export default function NutritionHonorPage() {
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
                   {content.headers.map((header, idx) => (
-                    <th key={idx} className="border px-4 py-2 text-left font-semibold">
+                    <th
+                      key={idx}
+                      className="border px-4 py-2 text-left font-semibold"
+                    >
                       {header}
                     </th>
                   ))}
-                 </tr>
+                </tr>
               </thead>
               <tbody>
                 {content.rows.map((row, rowIdx) => (
-                  <tr key={rowIdx} className="border-b hover:bg-gray-50 dark:hover:bg-gray-800/50 transition">
+                  <tr
+                    key={rowIdx}
+                    className="border-b hover:bg-gray-50 dark:hover:bg-gray-800/50 transition"
+                  >
                     {row.map((cell, cellIdx) => (
                       <td key={cellIdx} className="border px-4 py-2">
                         {cell}
@@ -185,7 +191,9 @@ export default function NutritionHonorPage() {
           </div>
         );
       case "subheading":
-        return <h3 className="text-xl font-semibold mt-4 mb-2">{content.value}</h3>;
+        return (
+          <h3 className="text-xl font-semibold mt-4 mb-2">{content.value}</h3>
+        );
       default:
         return null;
     }
@@ -204,7 +212,7 @@ export default function NutritionHonorPage() {
       {/* Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
+        className="fixed top-16 md:top-4 left-4 md:right-4 md:left-auto z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
         aria-label="Toggle dark mode"
       >
         {mounted ? (darkMode ? "☀️" : "🌙") : "🌓"}
@@ -265,7 +273,9 @@ export default function NutritionHonorPage() {
             {data.title}
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A complete study guide for the Pathfinder Nutrition Honor. Based on the official requirements and the SDA Zimmerman Nutrition Honor document.
+            A complete study guide for the Pathfinder Nutrition Honor. Based on
+            the official requirements and the SDA Zimmerman Nutrition Honor
+            document.
           </p>
           <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
             📅 Taught on: March 22nd & 25th 2026
@@ -281,10 +291,14 @@ export default function NutritionHonorPage() {
             <section
               key={idx}
               id={sectionId}
-              ref={(el) => { if (el) sectionRefs.current[sectionId] = el; }}
+              ref={(el) => {
+                if (el) sectionRefs.current[sectionId] = el;
+              }}
               className="mb-12 scroll-mt-24"
             >
-              <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-6 items-start group`}>
+              <div
+                className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-6 items-start group`}
+              >
                 {/* Large Emoji */}
                 <div className="shrink-0 text-6xl md:text-7xl text-primary-500 dark:text-primary-400">
                   {emoji}
@@ -300,23 +314,30 @@ export default function NutritionHonorPage() {
                         onClick={() => copySectionContent(section)}
                         className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition"
                       >
-                        {copiedSection === section.title ? "Copied!" : "📋 Copy section"}
+                        {copiedSection === section.title
+                          ? "Copied!"
+                          : "📋 Copy section"}
                       </button>
                     </div>
-                    {section.subsections ? (
-                      section.subsections.map((sub, subIdx) => (
-                        <div key={subIdx} className="mb-6">
-                          {sub.title && <h3 className="text-xl font-semibold mb-2">{sub.title}</h3>}
-                          {sub.content && sub.content.map((c, cIdx) => (
+                    {section.subsections
+                      ? section.subsections.map((sub, subIdx) => (
+                          <div key={subIdx} className="mb-6">
+                            {sub.title && (
+                              <h3 className="text-xl font-semibold mb-2">
+                                {sub.title}
+                              </h3>
+                            )}
+                            {sub.content &&
+                              sub.content.map((c, cIdx) => (
+                                <div key={cIdx}>{renderContent(c)}</div>
+                              ))}
+                          </div>
+                        ))
+                      : section.content
+                        ? section.content.map((c, cIdx) => (
                             <div key={cIdx}>{renderContent(c)}</div>
-                          ))}
-                        </div>
-                      ))
-                    ) : section.content ? (
-                      section.content.map((c, cIdx) => (
-                        <div key={cIdx}>{renderContent(c)}</div>
-                      ))
-                    ) : null}
+                          ))
+                        : null}
                   </div>
                 </div>
               </div>
