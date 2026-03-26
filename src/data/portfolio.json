@@ -1,0 +1,468 @@
+{
+  "name": "Elder Danstan Toel",
+  "tagline": "Master Guide in Training",
+  "about": "Stephen is a Full-Stack Developer and Technical Lead at NK-Organics Medical Missionaries, blending software development with content strategy, digital marketing, and natural health education. He serves as Departmental Head for Revival & Reformation at Zimmerman SDA Church, where he coordinates prayer cells, leads weekly intercessory prayer sessions, and facilitates morning devotions. A passionate servant leader, Stephen believes in using every gift—technical, spiritual, and creative—to bring health and hope through God's natural remedies. He is currently pursuing the Master Guide certification to deepen his leadership skills and better serve the youth and children in his community.",
+  "mission": "“I believe in servant leadership that empowers others through mentorship, strategic vision that transforms communities, and faithful stewardship that leverages both spiritual gifts and professional skills.”",
+  "dedication": "To the Lord Jesus Christ, who called me by name; to my family who supports me; and to the youth of Zimmerman SDA Church—you are why I serve.",
+  "sections": [
+    {
+      "title": "Leadership Identity & Growth (Wisdom)",
+      "type": "list",
+      "items": [
+        "Church Administration (Board Proposals, Budgets)",
+        "Prayer Cell Coordination & Leadership",
+        "Event Planning (Vespers, Fasting, Vigils)",
+        "Departmental Strategy (Revival & Reformation)",
+        "Volunteer & Team Coordination",
+        "Public Communication (WhatsApp, Announcements)",
+        "Spiritual Curriculum Development"
+      ]
+    },
+    {
+      "title": "Education",
+      "type": "cards",
+      "items": [
+        {
+          "title": "Academic & Professional Journey",
+          "description": "Bachelor in Information Technology (Technical University of Kenya, 2018–2024) with honors. Software developer and prompt engineer specializing in Next.js, React, and Java. Continuous certifications and self‑directed learning in modern web technologies. Full details, including secondary and primary education, certifications, and projects, are available on my main portfolio.",
+          "link": "https://magaredev.vercel.app/"
+        }
+      ]
+    },
+    {
+      "title": "Christian Storytelling Honor",
+      "type": "cards",
+      "items": [
+        {
+          "title": "30‑Day Devotion Challenge",
+          "description": "A collection of daily devotions written during the 30‑day challenge, covering themes from Reflecting Christ one of devotional books and personal reflections.",
+          "link": "#devotion-challenge"
+        },
+        {
+          "title": "Steps to Christ – Chapter Summaries",
+          "description": "Complete summaries of each chapter from Steps to Christ by Ellen G. White. Prepared for Master Guide.",
+          "link": "/steps-to-christ",
+          "shareOptions": [
+            {
+              "label": "Open in Google Forms",
+              "url": "https://docs.google.com/forms/d/e/1FAIpQLSczdeOAquVJPnBALXn0K0LSDfl3fNKRtL-b0TXI50XpucBESg/viewform"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Awards / Honors Taught",
+      "type": "cards",
+      "items": [
+        {
+          "title": "Nutrition Honor",
+          "description": "Complete study guide for the Nutrition Honor, including food pyramid, vegetarian diets, vitamins, and more.",
+          "link": "/nutrition-honor"
+        },
+        {
+          "title": "Ambassadors Club Teaching",
+          "description": "Educating and mentoring young ambassadors in Christian leadership, public speaking, and community service (2026–Present)"
+        },
+        {
+          "title": "Prayer Ministry Leadership",
+          "description": "Leading Audience Chamber Prayer Band weekly intercessory prayer sessions and spiritual warfare initiatives (2024–Present)"
+        }
+      ]
+    },
+    {
+      "title": "Lifestyle Development (Stature)",
+      "type": "cards",
+      "items": [
+        {
+          "title": "Physical Fitness",
+          "description": "Regular swimming for fitness and mental clarity",
+          "shareOptions": [
+            { "label": "Watch Steve Swimming", "url": "/videos/swimming-1.mp4" }
+          ]
+        },
+        {
+          "title": "Guitar Performance & Composition",
+          "description": "Creating and performing music across various genres"
+        },
+        {
+          "title": "Singing",
+          "description": "Vocal expression in solo and group settings, Chorister Lead at Zimmerman SDA Church"
+        }
+      ]
+    },
+    {
+      "title": "Spiritual Growth (Favor with God)",
+      "type": "cards",
+      "items": [
+        {
+          "title": "Steps to Christ",
+          "description": "Daily devotion and chapter summaries",
+          "images": [
+            "/images/steps-to-christ/steps-1.jpg",
+            "/images/steps-to-christ/steps-3.jpg",
+            "/images/steps-to-christ/steps-5.jpg",
+            "/images/steps-to-christ/steps-2.jpg",
+            "/images/steps-to-christ/steps-4.jpg",
+            "/images/steps-to-christ/steps-6.jpg"
+          ],
+          "shareOptions": [
+            { "label": "Chapter Summaries", "url": "/steps-to-christ" },
+            { "label": "Personal Reflections", "url": "#devotion-challenge" }
+          ]
+        },
+        {
+          "title": "The Desire of Ages",
+          "description": "Meditations on the life of Christ",
+          "shareOptions": [{ "label": "Reflections", "url": "#" }]
+        },
+        {
+          "title": "Fundamental Beliefs",
+          "description": "Study of Seventh-day Adventist core beliefs"
+        },
+        {
+          "title": "Teaching Bible Class",
+          "description": "Inverse Bible Lesson facilitation and Sabbath School teaching at Zimmerman SDA"
+        },
+        {
+          "title": "Adventist Heritage",
+          "description": "Engaged with 'Tell the World' series and created inspirational content",
+          "shareOptions": [{ "label": "Reflections", "url": "#" }]
+        }
+      ]
+    },
+    {
+      "title": "Community Development (Favor with Man)",
+      "type": "cards",
+      "items": [
+        {
+          "title": "Kasarani Prayer Cell Vespers",
+          "events": [
+            {
+              "name": "Weekly Vespers Kasa Homes",
+              "date": "Ongoing",
+              "description": "Gathering for prayer, fellowship, and planning the way forward for cell meetings"
+            },
+            {
+              "name": "Prayer Band Revival",
+              "date": "March 2026",
+              "description": "Re-establishing prayer band meetings every Sabbath morning from 7:00 AM - 8:00 AM at Zimmerman SDA"
+            }
+          ]
+        },
+        {
+          "title": "Medical Missionary Outreach",
+          "description": "Providing natural health education and support through NK-Organics Medical Missionaries",
+          "link": "https://nkmm.co.ke"
+        },
+        {
+          "title": "Mentorship & Discipleship",
+          "description": "Guiding Master Guide candidates and youth in their spiritual journey"
+        }
+      ]
+    },
+    {
+      "title": "Community Outreach & Service",
+      "type": "cards",
+      "items": [
+        {
+          "title": "Serepta Children's Home Visit – GYD 2026",
+          "description": "On 21st March 2026, as part of Global Youth Day, I joined fellow Master Guides and youth at Serepta Children's Home. I had the joy of teaching the children, drawing with them, serving meals, and dancing together. It was a beautiful day of giving and receiving love.",
+          "images": [
+            "/images/serepta-1.jpg",
+            "/images/serepta-2.jpg",
+            "/images/serepta-3.jpg",
+            "/images/serepta-4.jpg"
+          ],
+          "shareOptions": [
+            {
+              "label": "Watch Steve singing with children",
+              "url": "/videos/serepta-clip.mp4"
+            },
+            {
+              "label": "Watch Steve drawing",
+              "url": "/videos/serepta-clip2.mp4"
+            },
+            { "label": "Watch Video", "url": "/videos/serepta-clip1.mp4" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "30‑Day Devotion Challenge",
+      "type": "devotion-list",
+      "items": [
+        {
+          "date": "2026-02-28",
+          "bibleReading": "John 14:16–17; Acts 2:1–4",
+          "materialRead": "Acts of the Apostles, pp. 47–56",
+          "reflection": "The promise of the Spirit is not limited to any age or race. It is for every believer, unto the end. At Pentecost, fearful disciples became bold witnesses. The weak became strong. The Spirit still works through ordinary people who yield daily. We need not idly wait for a future outpouring while neglecting present duties. Those who constantly receive fresh grace will have power for each day. Christ Himself sought the Father daily—how much more do we need to do the same?",
+          "application": "Today I will not wait for a special season. I will kneel before the Lord this morning, renew my consecration, and ask for the Spirit\u0027s fresh supply. I will go forth trusting that His unseen agency enables me to be a laborer together with God.",
+          "prayerFocus": "Lord, fill me afresh with Your Spirit. Not for a future season, but for today\u0027s needs. As I kneel before You, renew my vows and grant me reviving, sanctifying power. Make me a witness bold and true in this time of earth\u0027s final harvest.",
+          "song": "“O Shepherd Divine” (Hymn 192)"
+        },
+        {
+          "date": "2026-02-27",
+          "bibleReading": "Romans 3:23–24",
+          "materialRead": "Steps to Christ, pp. 62–63; Evangelism, p. 363",
+          "reflection": "We have no righteousness of our own. Christ alone is our hope. For His sake, we are accounted righteous—accepted just as if we had never sinned. He changes the heart and abides in us by faith. But many will depart from truth. God desires every believer to have intelligent knowledge, grounded in His Word.",
+          "application": "Today I will surrender my will to Christ, maintain connection by faith, and seek intelligent understanding of truth. My only boast is in His righteousness.",
+          "prayerFocus": "Lord, I have no righteousness of my own. Cover me with Yours. Abide in me, and give me grounded knowledge of truth. Keep me from every seducing spirit. Amen.",
+          "song": "“Joyful Joyful We Adore Thee” (Hymn 12)"
+        },
+        {
+          "date": "2026-02-26",
+          "bibleReading": "1 Corinthians 1:30",
+          "materialRead": "The Review and Herald, June 26, 1894 (RC 103.1–103.7)",
+          "reflection": "Christ is made unto us wisdom, righteousness, sanctification, and redemption. From first to last, not one successful step can be taken without Him. Love to others is simply putting on Christ. When His grace is our sole dependence, His love diffuses through us to others. The Holy Spirit works every heart susceptible to His influence. Christ\u0027s righteousness goes before us, and His glory follows behind.",
+          "application": "Today I will not attempt one step without consciously depending on Christ. I will let His love flow through me to others, knowing that without Him I can do nothing. I will surrender my will completely, trusting Him for wisdom, righteousness, and every grace I need.",
+          "prayerFocus": "Lord Jesus, You are my wisdom, righteousness, sanctification, and redemption. I can take no successful step without You. Dwell in my heart and let Your love diffuse through me to others. Send Your Spirit to work in me, making me fully susceptible to Your holy influence.",
+          "song": "“My Hope Is Built on Nothing Less” (Hymn 522)"
+        },
+        {
+          "date": "2026-02-25",
+          "bibleReading": "1 Corinthians 15:58",
+          "materialRead": "RC 102.1–102.6",
+          "reflection": "The Holy Spirit waits to kindle God\u0027s love in hearts broken by confession. When holy principles guide us, our souls reflect Christ\u0027s simplicity. Prayer reaches eternity. Those who labor in faith, holding God\u0027s promises, will prevail. We must shine our light—heaven waits for channels to pour grace through.",
+          "application": "Today I will examine my heart, confess all sin, and let the Spirit kindle God\u0027s love in me. I will be steadfast, abounding in God\u0027s work, knowing my labor is not in vain. I will be a channel of grace to refresh others.",
+          "prayerFocus": "Lord, break my stubborn heart and kindle Your love in me by Your Spirit. Make me steadfast in Your work. Use me as a channel to pour heavenly grace to needy souls. Let Your tender spirit be seen in my life.",
+          "song": "“Take My Life and Let It Be” (Hymn 330)"
+        },
+        {
+          "date": "2026-02-24",
+          "bibleReading": "John 17:19",
+          "materialRead": "RC 101.1–101.7",
+          "reflection": "Jesus sanctified Himself for His disciples, that they might be sanctified through the truth—and the truth is God\u0027s Word. We are inexcusable if through negligence we are ignorant of Scripture. God has given us His Word and promised the Holy Spirit to guide us into all truth. Jesus taught with authority, no apology, no hesitancy. His Word carried power. David declared, \u0027The entrance of Thy words giveth light.\u0027 We must search the Scriptures, compare scripture with scripture, and plead for the Spirit\u0027s illumination. Those who seek shall find.",
+          "application": "Today I will not be negligent with God\u0027s Word. I will search the Scriptures earnestly, pleading for the Holy Spirit\u0027s guidance. I will let the truth sanctify me, and I will teach with the same authority and clarity that comes from knowing the Word.",
+          "prayerFocus": "Lord, sanctify me through Your truth—Your Word is truth. Give me hunger to search the Scriptures, and grant me the illumination of the Holy Spirit. Let me not be ignorant of Your claims. Like Jesus, let me speak with authority because I have dwelt in Your Word.",
+          "song": "“Wonderful Words Of life” (Hymn 286)"
+        },
+        {
+          "date": "2026-02-23",
+          "bibleReading": "2 Peter 1:2–8",
+          "materialRead": "The Sanctified Life, pp. 93–95",
+          "reflection": "Grace and peace multiply through knowing God. Daily prayer is as essential as food—we cannot safely separate from Christ even for a moment. Sanctification is progressive: adding faith, virtue, knowledge, temperance, patience, godliness, kindness, and love. As we add, God multiplies His Spirit. The cross is our first lesson of peace.",
+          "application": "Today I will make prayer my habit, lift my thoughts to God, and climb Peter\u0027s ladder—adding grace upon grace, knowing God multiplies as I add.",
+          "prayerFocus": "Lord, multiply Your grace in me. Teach me to pray without ceasing. Help me climb the steps of sanctification, adding virtue to faith, love to all. Hold me close—I cannot live a moment without You.",
+          "song": "“Take My Life and Let It Be” (Hymn 330)"
+        },
+        {
+          "date": "2026-02-22",
+          "bibleReading": "Colossians 1:21–22",
+          "materialRead": "Reconciled From Wicked Works (Sabbath School Study)",
+          "reflection": "Paul paints a dark picture of humanity—alienated, enemies in our minds by wicked works. Yet from the very beginning, God has taken the initiative to reconcile us. In Eden He called out, \u0027Where are you?\u0027 and today He still seeks us, His lost sheep. The gospel is simple: (1) We cannot save ourselves, so Jesus died for us. (2) By faith, repentance, and baptism, we are justified and set free from condemnation. (3) Now united with Christ, He lives His life in us. These are not separate steps but the daily experience of accepting Jesus. The foundation rests always upon the Cross—to that we must continually return.",
+          "application": "Today I will look honestly at myself—my character, my inner being—and let the sight drive me back to the Cross. I will not complicate the gospel but receive it simply: Jesus died for me, I am forgiven, and He now lives in me. I will give myself to Him afresh this morning.",
+          "prayerFocus": "Lord, I was once alienated, an enemy in my mind. But You sought me out and reconciled me through Your death. Thank You for the simplicity of the gospel—I cannot save myself, but You have. Live Your life in me today. Let me never wander from the foot of the Cross.",
+          "song": "“My Hope Is Built on Nothing Less” (Hymn 522)"
+        },
+        {
+          "date": "2026-02-20",
+          "bibleReading": "Ecclesiastes 9:9–10",
+          "materialRead": "Personal devotion on Ecclesiastes 9",
+          "reflection": "Solomon, in all his wisdom, pauses to give simple, profound advice: \u0027Live joyfully with the wife whom you love all the days of your fleeting life.\u0027 In a book that often reflects on the vanity of worldly pursuits, this command shines as a divine gift. God Himself ordains that we find joy in love, in relationship, in the one He has given us. For me, Stephen, this verse speaks directly to my heart about Therniah—she is not an accident or a distraction, but a portion from God\u0027s own hand. Whatever my hand finds to do—whether building the kingdom, seeking work, or facing daily struggles—I am to do it with all my might, because the days are fleeting. And in those days, I am to cherish the gift of love He has placed beside me.",
+          "application": "Today I will not take Therniah for granted. I will thank God for her specifically. I will also work with all my might at whatever task is before me—whether job-seeking, ministry, or small duties—knowing that this life is brief and every moment counts. I will choose joy in love and diligence in labor, both as acts of worship.",
+          "prayerFocus": "Lord, thank You for Therniah—my portion, my joy, my gift from Your hand. Teach me to live joyfully with her all the days of this fleeting life. And whatever my hand finds to do, give me strength to do it with all my might, for Your glory and for the sake of those I love. In Jesus\u0027 name, Amen.",
+          "song": "“How Cheering Is the Christian’s Hope” (Hymn 510)"
+        },
+        {
+          "date": "2026-02-19",
+          "bibleReading": "1 Corinthians 15:57; Acts 7:56",
+          "materialRead": "The Sanctified Life, pp. 91–93 (RC 99.1–99.7)",
+          "reflection": "Thanks be to God, who gives us victory through our Lord Jesus Christ. Stephen, the first Christian martyr, saw heaven opened and the Son of man standing at the right hand of God. The glorious light of Christ\u0027s countenance shone upon him so brightly that even his enemies saw his face shine like an angel\u0027s. If we would dwell more upon Christ and the heavenly world, we would find powerful stimulus and support in fighting the battles of the Lord. Pride and love of the world lose their power as we contemplate the glories of that better land soon to be our home. Sanctification is a daily work. The willful commission of known sin silences the Spirit and separates the soul from God. Whatever ecstasies of religious feeling one may experience, Jesus cannot abide in a heart that disregards the divine law. Here is where Christ\u0027s help is needed—human weakness united with divine strength, enabling faith to exclaim, \u0027Thanks be to God, which giveth us the victory.\u0027",
+          "application": "Today I will discipline my mind to dwell on Christ and heavenly realities. I will set aside time for prayerful meditation on sacred themes. I will not deceive myself by thinking God will bless me while I trample on His requirements. I will bring my human weakness to divine strength, trusting Christ for victory.",
+          "prayerFocus": "Lord Jesus, give me eyes to see beyond this world. As Stephen saw You standing at the right hand of God, let me behold Your glory by faith. Sanctify me daily. Unite my weakness with Your strength. Let no willful sin separate me from You. Thanks be to God, who gives me victory through my Lord Jesus Christ. Amen.",
+          "song": "“Faith Is the Victory” (Hymn 608)"
+        },
+        {
+          "date": "2026-02-18",
+          "bibleReading": "Acts 1:8",
+          "materialRead": "Acts Of Apostles : Pentecost ||Promise for Today (Chapter 4)",
+          "reflection": "The disciples faced disappointment—their Master crucified, their dreams shattered, their hopes deferred. Yet they emerged from the upper room not with sorrow, but with gladness and triumph. Their secret was not their circumstances, but the risen Christ they had seen. When we face joblessness, financial strain, and personal battles, we are called to wait with purpose—not in idleness, but in active preparation. The disciples prayed, confessed unbelief, drew together in unity, and shifted their focus from personal blessing to God\u0027s mission. When heaven broke through at Pentecost, unity and prayer released unstoppable power. The same Spirit that filled them is available to us today. The promise is for you—in 2026, in your waiting season.",
+          "application": "Today I will stop mourning my disappointed hopes and rejoice in the risen Christ. I will use this waiting season to draw closer to God, not drift away. I will pray pleading the merit of the risen Christ who intercedes for me. I believe the same Spirit who transformed fearful disciples can transform my situation today.",
+          "prayerFocus": "Lord, pour out Your Spirit upon us as You did at Pentecost. Let the rushing mighty wind fill our hearts, homes, and circumstances. Cut through our unbelief. Open doors that no man can shut. Provide for us in ways that glorify Your name. In Jesus\u0027 mighty name, Amen.",
+          "song": "Breathe on Me, Breath of God "
+        },
+        {
+          "date": "2026-02-17",
+          "bibleReading": "1 Thessalonians 4:2–3; Ephesians 3:14–19",
+          "materialRead": "The Sanctified Life, pp. 84–87 (RC 98.1–98.8)",
+          "reflection": "Sanctification is not an optional extra—it is the will of God for every believer. Paul\u0027s prayers for the churches reveal that sanctification is not about human effort alone, but about being strengthened by the Spirit, having Christ dwell in the heart by faith, and being rooted and grounded in love. Unity among believers is the sure result of Christian perfection. Paul urged the Corinthians to be perfectly joined together in the same mind—something he would not have required if it were impossible. Bible sanctification produces blameless, harmless children of God who shine as lights in a crooked and perverse world.",
+          "application": "Today I will not treat sanctification as a distant ideal but as God\u0027s present will for my life. I will pray Paul\u0027s prayer over myself: that I may be strengthened with might by the Spirit in the inner man, that Christ may dwell in my heart by faith, and that I may know the love of Christ which passes knowledge. I will work out my own salvation with fear and trembling, doing all things without murmuring and disputing, that I may shine as a light.",
+          "prayerFocus": "Father, I bow my knees to You. Grant me, according to the riches of Your glory, to be strengthened with might by Your Spirit in the inner man. Let Christ dwell in my heart by faith. Root and ground me in love, that I may comprehend with all saints the breadth, length, depth, and height of Christ\u0027s love—and be filled with all the fullness of God. Work in me Your sanctification, that I may be blameless and harmless, a child of God without rebuke, shining as a light in this world.",
+          "song": "“Take My Life and Let It Be” (Hymn 330)"
+        },
+        {
+          "date": "2026-02-16",
+          "bibleReading": "John 15:8",
+          "materialRead": "The Sanctified Life, pp. 82–84 (RC 97.1–97.7)",
+          "reflection": "Bearing much fruit glorifies the Father. Many shrink from the life of fruit-bearing because it requires sacrifice and the painful pruning of God. But when we see ourselves as humble instruments in Christ\u0027s hands, His yoke becomes easy and His burdens light. True knowledge of Christ comes not from others\u0027 experiences but from our own—when we overcome obstacles, bear responsibilities, and discharge duties in the spirit of our Master, we gain the witness in ourselves. The more we contemplate Christ and experience His saving power, the more we realize our weakness and look to Him as our strength. It is not only our privilege but our duty to maintain close union with Christ and have a rich experience in the things of God.",
+          "application": "Today I will not shrink from the pruning God brings. I will embrace the obstacles, opposition, and responsibilities as opportunities to know Christ personally. I will not depend on others\u0027 experiences but seek my own witness of His faithfulness and power. The same means that formed the prophets and apostles are available to me—I will use them and secure the same results.",
+          "prayerFocus": "Lord, make me a fruitful branch that brings glory to Your name. Do not let me shrink from the pruning that produces more fruit. Give me courage to face obstacles in Your strength, and grant me the witness in myself that I know You personally. I commit myself to You, trusting that You are able to keep that which I have committed unto You.",
+          "song": "“My Hope Is Built on Nothing Less” (Hymn 522)"
+        },
+        {
+          "date": "2026-02-15",
+          "bibleReading": "Isaiah 1:19; John 15:4–10",
+          "materialRead": "Reflecting Christ, pp. 80–81 (RC 96.1–96.6)",
+          "reflection": "The Christian\u0027s character is shown by daily life—good fruit from a good tree. Christ is the vine; we are the branches. Abiding in Him is the only way to bear fruit. The fruit of the Spirit—love, joy, peace, patience, gentleness, goodness, faith, meekness, temperance—is simply the principles of God\u0027s law carried out in the life. Those who truly love God delight in His will and obey willingly, not grudgingly. The law is not a grievous yoke but a mirror showing our need of grace. Through repentance and faith we are justified, and by divine grace we are enabled to obey.",
+          "application": "Today I will examine whether I obey God willingly like a loving child or grudgingly like a reluctant servant. I will abide in Christ, drawing strength from Him to bear fruit. I will not see His commandments as a restraint but as the path to genuine holiness.",
+          "prayerFocus": "Lord, make me a fruitful branch abiding in You. Give me a heart that delights in Your will and obeys willingly. Let the fruit of Your Spirit be evident in my life today—love, joy, peace, patience, gentleness, goodness, faith, meekness, and temperance. Your grace is sufficient for me.",
+          "song": "“Trust and Obey” (Hymn 590)"
+        },
+        {
+          "date": "2026-02-13",
+          "bibleReading": "Revelation 1:10",
+          "materialRead": "Reflecting Christ, p. 95 (RC 95.1–95.6)",
+          "reflection": "On the Lord\u0027s day—the Sabbath—John upon barren Patmos was carried back to rocky Horeb, where God\u0027s law was spoken amid thunder and lightning. The same Spirit that sanctified the seventh day came upon him. He contemplated the sin of Adam, the terror of transgression, and the infinite love of God in giving His Son to redeem a lost race. It was a mystery to John that such a costly plan of salvation could be refused by those for whom it was made.",
+          "application": "Today I will remember that the Sabbath is not merely a day of rest, but a sign of God\u0027s creative and redemptive power. I will contemplate the immutability of His law and the fathomless love that provided a Saviour. And I will choose—even in my barren places—to worship Him who is Lord of the Sabbath.",
+          "prayerFocus": "Lord, on this Sabbath day, transport me to Horeb. Let me see the holiness of Your law and the wonder of Your love. I am amazed that You would give Your Son for a rebel like me. May I never treat lightly the sacrifice made at such cost. Write Your law upon my heart, and let this Sabbath be a delight.",
+          "song": "O Day of Rest and Gladness"
+        },
+        {
+          "date": "2026-02-12",
+          "bibleReading": "1 John 5:12",
+          "materialRead": "(RC 94.1–94.6)",
+          "reflection": "John and Judas walked with the same Jesus, heard the same lessons, witnessed the same miracles. One yielded his violent temper to the molding power of grace and became the apostle of love. The other resisted, cherished his secret sins, and was brought into bondage to Satan. The difference was not in opportunity—but in surrender. John accepted reproof; Judas hardened his heart. One died to self daily; the other died to grace daily.",
+          "application": "Today I will examine not just my profession, but my posture. Am I, like John, willing to be corrected? Am I yielding my hidden faults to Christ\u0027s transforming power? Or am I, like Judas, holding onto something that is slowly gaining mastery over me? I will choose surrender over secrecy.",
+          "prayerFocus": "Lord, save me from the tragedy of proximity without transformation. I do not want to be near You but never like You. Break my violent spirit. Melt my resistance. Give me the humility to accept reproof and the courage to yield every hidden thing to Your refining fire. Make me a John—not a Judas.",
+          "song": "Have Thine Own Way, Lord"
+        },
+        {
+          "date": "2026-02-11",
+          "bibleReading": "The Son of man is not come to destroy men\u0027s lives, but to save them.~Luke 9:54–56",
+          "materialRead": "Reflecting Christ, pp. 57–59 (RC 93.1–93.6)",
+          "reflection": "When the Samaritans rejected Jesus, His disciples sought vengeance—but Christ came not to destroy, but to save. His presence is never forced; He waits to be invited. How often do we, like the Samaritans, remain content without Him? John, once desiring fire from heaven, was transformed by grace into the apostle of love. The same Spirit that rebuked him still teaches us today.",
+          "application": "Today I will not be quick to take offense or wish judgment on those who reject or mistreat me. Instead, I will extend the same patience and mercy Christ showed—leaving room for hearts to soften and doors to open.",
+          "prayerFocus": "Lord, teach me what manner of spirit I am of. Purge me from all bitterness and pride. Give me a heart that invites Your presence, not one that remains indifferent—and hands that rescue, not destroy.",
+          "song": "Rescue the Perishing"
+        },
+        {
+          "date": "2026-02-10",
+          "bibleReading": "Psalm 34:18 (also 1 Peter 5:7; Romans 8:28; Psalm 34:17)",
+          "materialRead": "Morning Encouragement devotion for the hurting and waiting@Audience",
+          "reflection": "The Lord is close to the brokenhearted. In seasons of pain, rejection, or uncertainty, God draws near—not to remove the trial at once, but to hold us through it. Our suffering is not unseen; our prayers are not unheard. Trials are not enemies of faith, but opportunities for God to deepen our trust and prepare us for greater purpose.",
+          "application": " Today, I will bring my anxiety, disappointment, and weariness to Jesus. I will trust that even in closed doors and silent waiting, God is working for my good. I will look for His nearness in my pain and choose to believe He is writing a story of redemption in my life.",
+          "prayerFocus": "Heavenly Father, I come to You with my broken heart and empty hands. You see every struggle, every tear, every unanswered prayer. Wrap me in Your peace. Help me to trust Your timing, lean into Your purpose, and sense Your presence—especially when the way feels dark. I believe You are working even now. Amen.",
+          "song": "“Give of Your Best to the Master”[#SDAH 572]"
+        },
+        {
+          "date": "2026-02-09",
+          "bibleReading": "\"Daniel 9:18; Isaiah 6:5",
+          "materialRead": "The Great Controversy, pp. 470–471 {RC 91}",
+          "reflection": "True sanctification reveals our unworthiness before God’s holiness. Like Daniel and Isaiah, we approach Him not in our own righteousness, but in total dependence on His great mercy.",
+          "application": "Today, I will come before God just as I am—without pretense or pride—leaning only on His grace, and walking in obedience to His Word.",
+          "prayerFocus": "Lord, keep me humble at the foot of the cross. Let my heart ever echo: \u0027Not my righteousness, but Your great mercies.",
+          "song": "Just as I Am"
+        },
+        {
+          "date": "2026-02-07",
+          "bibleReading": "Psalm 44:13–14  ",
+          "materialRead": " Personal meditation on Psalm 44  ",
+          "reflection": "The psalmist’s cry resonates deeply: “You have made us a byword among the nations, a shaking of the head among the peoples.” Even when God’s people remain faithful, they sometimes face humiliation, confusion, and seeming abandonment. Yet, the lament is an act of faith—it means we still believe God hears, even when He feels silent.  ",
+          "application": "Today, when I face ridicule, delay, or shame because of my faith or circumstances, I will follow the psalmist’s example—bringing my honest confusion to God, while choosing to trust His heart even when I cannot trace His hand. ",
+          "prayerFocus": "Lord, when Your ways feel hidden and my faith is mocked, remind me of Your past faithfulness. Turn my shame into testimony, and let my waiting become worship. I choose to trust You even in the silence.  ",
+          "song": "It Is Well With My Soul"
+        },
+        {
+          "date": "2026-02-06",
+          "bibleReading": " Daniel 10:11–12",
+          "materialRead": "(RC 90.1–90.6)Reflecting Christ ",
+          "reflection": " When Daniel saw the holiness of God, he saw his own sinfulness. True sanctification doesn’t make us claim perfection—it makes us lean harder on grace. Yet God calls him “greatly beloved,” hears his prayers, and sends an angel both to move a king’s heart and to strengthen Daniel’s trembling soul.",
+          "application": "Today, I will examine my heart in God’s presence, trusting that He hears my prayers even when answers seem delayed—and I will pray with persistence for the needs of our church and community.",
+          "prayerFocus": "Lord, let me see Your holiness and my need. Strengthen my faith as You strengthened Daniel. Move hearts, answer prayers, and remind me that I am greatly loved by You.",
+          "song": "“Tupe Moto Wa Uhai” [#NYK 80]"
+        },
+        {
+          "date": "2026-02-05",
+          "bibleReading": " Daniel 3:26",
+          "materialRead": " Prophets and Kings, pp. 509–511 (RC 89.1–89.6)",
+          "reflection": " The courageous faith of Shadrach, Meshach, and Abednego led a pagan king to recognize the Son of God. Our unwavering witness in trial reveals Christ’s presence and power, not to force belief, but to invite others to see and glorify God. ",
+          "application": "Today, I will be bold and graceful in representing Christ, especially when my faith is tested. I will trust that my testimony can reveal Him to others.",
+          "prayerFocus": "Lord, make my life a clear witness to Your goodness. Let my faith under fire reveal Your presence, and draw others to worship You freely.",
+          "song": "Jesus I will Trust Thee[#SDAH 935]"
+        },
+        {
+          "date": "2026-02-04",
+          "bibleReading": " Daniel 3:28",
+          "materialRead": "The Sanctified Life, pp. 40–41; Prophets and Kings, p. 513 (RC 88.1–88.6)",
+          "reflection": "God doesn\u0027t always remove the fire, but He walks with us through it. The faithfulness of Shadrach, Meshach, and Abednego reveals that steadfast trust invites God’s presence—even into our fiercest trials—turning our testimony into a beacon of His glory.",
+          "application": " Today, I will stand firm in one area where I’m being pressured to compromise, trusting that Jesus is with me in the “fire.”",
+          "prayerFocus": " Lord, make me faithful and unshaken. Walk with me through every trial, and let my life reflect Your presence and power to those around me.",
+          "song": "Stand Like The Brave [#SDAH 610]"
+        },
+        {
+          "date": "2026-02-03",
+          "bibleReading": "Ezra 7:27–28; Nehemiah 2:8",
+          "materialRead": "Prophets and Kings, Chapters 51, 54, 55",
+          "reflection": "Ezra and Nehemiah prayed with faith, and God moved the king\u0027s heart and provided all they needed to rebuild Jerusalem\u0027s walls. God still rebuilds broken things—our church, our dreams, our lives—when we pray with that same faith.",
+          "application": "Today, I will pray specifically for one \"wall\" that needs rebuilding in my life or in our church—trusting that God can move hearts and provide miraculously.",
+          "prayerFocus": "Lord, move hearts in authority for our church land. Provide jobs, spouses, healing, and restoration. Rebuild every broken area through Your mighty hand.",
+          "song": "Great Is Thy Faithfulness[#SDAH 100]"
+        },
+        {
+          "date": "2026-02-02",
+          "bibleReading": "Daniel 3:25",
+          "materialRead": "Reflecting Christ,(RC87.1–87.7)",
+          "reflection": " In our fiercest trials, God doesn’t always remove the fire—He walks with us through it. True faith stands firm, not because the flames vanish, but because the presence of Jesus is real in the furnace.",
+          "application": "Today, I will choose faithfulness over compromise in one area where pressure is building—trusting that God is with me even in the heat.",
+          "prayerFocus": "Lord, open my eyes to see You beside me in every trial. Give me courage to stand firm, knowing Your presence is greater than any fire.",
+          "song": "Though The Road be Rough \u0026 Thorny...[#SDAH 623]"
+        },
+        {
+          "date": "2026-02-01",
+          "bibleReading": "Psalm 27:13-14  ",
+          "materialRead": "Messages to Young People, pp. 96–97",
+          "reflection": " God’s delays are not His denials. Waiting—especially in uncertainty—is where faith is refined. Like David, I can be confident that I will see God’s goodness even while circumstances remain unclear.  ",
+          "application": " Today, I will surrender my job search timeline to God. I will apply faithfully where doors open, pray without panic, and trust His provision step by step.",
+          "prayerFocus": " Father, quiet my anxious heart. Open the right door in Your perfect time. Help me wait with hope, not desperation, and use this season to deepen my dependence on You.  ",
+          "song": "I will Follow Thee [#SDAH 623]"
+        },
+        {
+          "date": "2026-01-31",
+          "bibleReading": "Daniel 1:11-12|| Reflecting Christ~March 13th",
+          "materialRead": "Reflecting Christ pp.86-86",
+          "reflection": "Daniel’s faithful obedience in diet was an act of worship. God honored his steadfastness with health, wisdom, and prophetic insight. True principle triumphs over appetite.",
+          "application": "Today, I will honor God in my eating choices—choosing simplicity and self-control over convenience or compromise.",
+          "prayerFocus": "Lord, give me Daniel’s courage to stand firm in my convictions. Let my daily choices reflect my commitment to honor You above all.",
+          "song": "Let Every Lamb Be Burning[#SDAH 595]-{Obedience bring the blessings near...}"
+        },
+        {
+          "date": "2026-01-30",
+          "bibleReading": "1 Corinthians 10:31||MH 308-310",
+          "materialRead": "Ministry of Healing — On health and temperance",
+          "reflection": "My physical choices directly impact my spiritual clarity and moral strength. Treating my body as God’s temple is part of my worship.",
+          "application": "I will eat simply today, stop when satisfied, and take time for intentional physical exercise.",
+          "prayerFocus": "Lord, grant me self-control and wisdom to honor You with my body, that I may serve You with a clear mind and a healthy spirit.",
+          "song": "Take Time To Be Holy(#SDAH 500)"
+        },
+        {
+          "date": "2026-01-29",
+          "bibleReading": "My brethren, count it all joy when ye fall into divers temptations..James1:2-4",
+          "materialRead": "Testimonies for the Church, Vol. 5, pp. 344.2-344.3",
+          "reflection": "Life\u0027s difficulties are not obstacles, but God\u0027s school for developing Christlike character—patience, meekness, and grace.",
+          "application": "When faced with a challenge or insult today, I will pause, pray, and respond with gentleness, seeing it as spiritual pruning.",
+          "prayerFocus": "Lord, prune my heart through today\u0027s trials. Help me respond with Your grace, not my pride.",
+          "song": " Nyimbo Za Kristo (#075)"
+        },
+        {
+          "date": "2026-01-28",
+          "bibleReading": " 3 John 1:2 |MH 301–308 by Ellen G. White",
+          "materialRead": "Ministry of Healing pp 301-308",
+          "reflection": "This passage teaches me that how and when I eat affects my body, mind, and spirit. Eating moderately, slowly, and at peaceful times honors God\u0027s design. Overeating or eating under stress weakens both body and spiritual focus, especially on Sabbath. My body is a temple—how I care for it impacts my ability to receive God\u0027s Word and serve Him fully.",
+          "application": "Eat slowly and mindfully – Put down utensils between bites, chew thoroughly, and pause to thank God before and during meals.\n\nAvoid extremes – Choose foods and drinks that are warm, not too hot or cold. Limit liquids during meals to aid digestion.\n\nKeep Sabbath meals simple yet special – Prepare food ahead of time. Make the Sabbath meal attractive and slightly different, but not heavier, than weekday meals.\n\nListen to your body – Stop eating before feeling completely full. If tired or stressed, rest before eating.\n\nReduce salt and spices – Choose natural flavors. Include more fruit in your diet to naturally satisfy thirst.",
+          "prayerFocus": "Heavenly Father, bless me with discipline and wisdom to follow these principles of health. Help me eat with gratitude, moderation, and mindfulness so that my body may be healthy and my spirit ready to receive You. Amen.",
+          "song": "Balm in Gilead # SDAH 475"
+        },
+        {
+          "date": "2026-01-27",
+          "bibleReading": " 2nd John 1:3\u0027",
+          "materialRead": "Desire of Ages ",
+          "reflection": "God’s foundation is sure-He knows who are His. True faith isn’t about outward show but a daily, quiet growth in self-denial, love, patience, and prayer. When trials come, it’s those who are rooted in Christ who stand firm, not by their own strength but because they trust in Him. ",
+          "application": "Today, I will focus on living my faith quietly but consistently—trusting God in small struggles, choosing kindness without drawing attention, and praying for a heart so united with Christ that good works flow naturally from His love in me. ",
+          "prayerFocus": "Lord, help me to build my life on Your sure foundation. Make my faith genuine and steady, especially in unseen moments. Let my character reflect Your love without me even noticing—for Your glory.",
+          "song": "A Mighty Fortress (SDA Hymnal #506)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "title": "Nutrition Honor – Study Guide",
+  "sections": [
+    {
+      "title": "1. Food Pyramid & Balanced Diet",
+      "subsections": [
+        {
+          "title": "1.1 Draw and explain the food pyramid guide in its various forms.",
+          "content": [
+            {
+              "type": "text",
+              "value": "The **USDA Food Pyramid** (traditional) and **MyPlate** are both widely used.\n\n**Key principles (Healthy Eating Food Pyramid):**"
+            },
+            {
+              "type": "list",
+              "items": [
+                "**Eat Most** – Grains (whole grains preferred)",
+                "**Eat More** – Vegetables and fruits",
+                "**Eat Moderately** – Meat, fish, eggs, beans, and milk/dairy alternatives",
+                "**Eat Least** – Fats, oils, salt, sugar"
+              ]
+            },
+            {
+              "type": "text",
+              "value": "**Recommended servings for adults (MyPlate):**"
+            },
+            {
+              "type": "table",
+              "headers": ["Food Group", "Daily Servings"],
+              "rows": [
+                ["Grains", "6–11 servings (focus on whole grains)"],
+                ["Vegetables", "at least 3–5 servings"],
+                ["Fruits", "at least 2–4 servings"],
+                ["Protein (meat, fish, eggs, beans)", "5–8 ounces"],
+                ["Dairy (or alternatives)", "1–2 servings"],
+                ["Fats & sugars", "Use sparingly"],
+                ["Fluids", "6–8 glasses of water"]
+              ]
+            },
+            {
+              "type": "text",
+              "value": "*What is a serving?* A serving is a measured amount used to quantify daily intake; it’s different from a portion (the amount you actually eat)."
+            },
+            {
+              "type": "text",
+              "value": "**Hand portion guide:**"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Your fist = about 1 cup (vegetables, fruit)",
+                "Cupped hand = about ½ cup (grains)",
+                "Palm = about 3 oz (protein)",
+                "Thumb = about 1 tbsp (fats, dressings)"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "1.2 Why is it important to eat a balanced diet?",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "**Prevents malnutrition** – supplies all essential nutrients.",
+                "**Supports healthy weight** – provides appropriate calories.",
+                "**Reduces chronic disease risk** – heart disease, diabetes, some cancers, high blood pressure.",
+                "**Boosts energy** – fuels the body properly.",
+                "**Improves mental health** – may reduce depression and anxiety.",
+                "**Promotes growth & development** – vital for children and teens.",
+                "**Enhances digestive health** – fiber prevents constipation.",
+                "**Improves skin, hair, appearance** – nutrients keep tissues healthy.",
+                "**Strengthens immune function** – helps fight infections.",
+                "**Supports long‑term health** – lays foundation for a healthy life."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "2. Types of Vegetarian Diets",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Type", "Consumes", "Avoids"],
+          "rows": [
+            ["Lacto‑ovo vegetarian", "Dairy products, eggs", "Animal flesh"],
+            ["Ovo vegetarian", "Eggs", "Dairy, animal flesh"],
+            ["Vegan vegetarian", "Plant foods only", "Dairy, eggs, animal flesh"],
+            ["Lacto vegetarian", "Dairy", "Eggs, animal flesh"]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "3. Two‑Day Lacto‑Ovo Vegetarian Menu (Balanced, following the food guide pyramid)",
+      "content": [
+        {
+          "type": "subheading",
+          "value": "Day 1"
+        },
+        {
+          "type": "table",
+          "headers": ["Meal", "Food Items"],
+          "rows": [
+            ["Breakfast", "Whole‑grain oatmeal with berries and low‑fat milk; glass of water"],
+            ["Lunch", "Lentil soup; whole‑wheat roll; mixed green salad with vinaigrette; apple"],
+            ["Dinner", "Vegetable stir‑fry (broccoli, carrots, bell peppers) with tofu; brown rice; orange slices"]
+          ]
+        },
+        {
+          "type": "subheading",
+          "value": "Day 2"
+        },
+        {
+          "type": "table",
+          "headers": ["Meal", "Food Items"],
+          "rows": [
+            ["Breakfast", "Scrambled eggs with spinach; whole‑wheat toast; sliced banana; water"],
+            ["Lunch", "Chickpea salad sandwich on whole‑grain bread; carrot sticks; pear"],
+            ["Dinner", "Baked sweet potato; steamed kale; black beans; side of melon"]
+          ]
+        },
+        {
+          "type": "text",
+          "value": "*Ensure fluids (water, herbal tea) throughout the day.*"
+        }
+      ]
+    },
+    {
+      "title": "4. Other Names for Vitamins",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "**Vitamin B1** – Thiamine",
+            "**Vitamin B2** – Riboflavin"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "5. Significant Food Sources",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Nutrient", "Three Sources"],
+          "rows": [
+            ["Vitamin C", "Oranges, red bell peppers, broccoli, strawberries"],
+            ["Vitamin A", "Carrots, sweet potatoes, spinach, mangoes"],
+            ["Vitamin B1", "Whole grains (brown rice), legumes (beans, lentils), sunflower seeds"],
+            ["Vitamin B2", "Milk, yogurt, eggs, almonds, spinach"],
+            ["Iron", "Red meat, spinach, lentils, beans, iron‑fortified cereals"],
+            ["Calcium", "Dairy products (milk, yogurt, cheese), sardines (with bones), fortified plant milks, kale"]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "6. Why Drink Plenty of Water Every Day?",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Regulates body temperature (sweating).",
+            "Lubricates joints and cushions organs.",
+            "Flushes out waste products (urination, perspiration, bowel movements).",
+            "Transports nutrients and oxygen to cells.",
+            "Prevents dehydration (which causes headaches, fatigue, dizziness).",
+            "Supports organ function (kidneys, liver, digestion).",
+            "Maintains healthy skin.",
+            "Aids digestion and prevents constipation.",
+            "Improves mood and energy.",
+            "Boosts physical performance.",
+            "Helps weight management (increases satiety).",
+            "Reduces risk of kidney stones and UTIs."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "7. How Much Water to Drink Daily",
+      "content": [
+        {
+          "type": "text",
+          "value": "**Men**: about 14.8 glasses (3.7 liters)\n\n**Women**: about 10.8 glasses (2.7 liters)\n\n*(Source: Mayo Clinic)*"
+        }
+      ]
+    },
+    {
+      "title": "8. Three Common Diseases Controlled by Diet",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Disease", "How Diet Helps"],
+          "rows": [
+            ["Cardiovascular (Heart) Disease", "Reduce saturated fats, sugar, processed foods; increase fruits, vegetables, whole grains."],
+            ["Hypertension", "Reduce salt, alcohol, saturated fat; increase vegetables, fruits, whole grains."],
+            ["Type 2 Diabetes", "Balance carbohydrate intake (low‑glycemic); high‑fiber foods improve insulin sensitivity; reduce sugar."],
+            ["Iron‑Deficiency Anaemia", "Eat iron‑rich foods (red meat, spinach, beans) with vitamin C to enhance absorption; supplement if needed (consult doctor)."]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "9. Whole Wheat Flour vs. White Flour",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "**Whole wheat flour** retains the bran, germ, and endosperm → more fiber, vitamins, minerals.",
+            "**White flour** is refined – bran and germ removed → finer texture but lower fiber and nutrients.",
+            "**Higher nutritive value:** **Whole wheat flour**."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "10. What Does RDA Mean?",
+      "content": [
+        {
+          "type": "text",
+          "value": "**RDA = Recommended Dietary Allowance**\n\nThe average daily intake level of a nutrient sufficient to meet the requirements of nearly all (97–98%) healthy individuals in a specific life stage and gender group. It is used as a goal for daily intake."
+        }
+      ]
+    }
+  ]
+}
