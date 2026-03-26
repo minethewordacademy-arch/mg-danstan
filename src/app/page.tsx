@@ -339,7 +339,7 @@ export default function Home() {
       {/* Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-white/90 dark:bg-gray-800 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
+        className="fixed top-4 left-4 md:right-4 md:left-auto z-50 p-2 rounded-full bg-white/90 dark:bg-gray-800 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
         aria-label="Toggle dark mode"
       >
         {mounted ? (darkMode ? "☀️" : "🌙") : "🌓"}
