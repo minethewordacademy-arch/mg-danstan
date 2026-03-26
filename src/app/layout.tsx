@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stephen Magare – Master Guide Portfolio",
+  title: "Elder Danstan Toel – Master Guide Portfolio",
   description:
-    "Stephen Magare Ogaro – Master Guide in Training. A portfolio documenting my journey, devotions, and service in the Master Guide program.",
+    "Elder Danstan Toel – Master Guide in Training. A portfolio documenting my journey, devotions, and service in the Master Guide program.",
   icons: {
     icon: "/favicon.ico",
   },

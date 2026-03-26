@@ -219,89 +219,127 @@ export default function Home() {
         <meta name="description" content="Master Guide portfolio" />
       </Head>
 
-      {/* Sticky Header */}
-      <header className="sticky top-0 z-40 bg-white/40 dark:bg-gray-900/40 backdrop-blur-lg shadow-sm transition-all">
-        <div className="container mx-auto px-4 max-w-4xl flex items-center justify-between py-3">
-          <a
-            href="#hero"
-            onClick={(e) => handleNavClick(e, "hero")}
-            className="text-xl font-bold text-blue-600 dark:text-blue-400 hover:underline"
-          >
-            {data.name.split(" ")[0]}
-          </a>
-
-          <nav className="hidden md:flex space-x-6">
-            {navItems.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                onClick={(e) => handleNavClick(e, item.id)}
-                className={`text-sm font-medium transition-colors ${
-                  activeSection === item.id
-                    ? "text-blue-600 dark:text-blue-400"
-                    : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                }`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Mobile hamburger button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 mr-12"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6 text-gray-800 dark:text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+      {/* Sticky Header – Light & Elegant */}
+      <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md transition-all duration-300 border-b border-gray-200 dark:border-gray-700">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="flex items-center justify-between h-16 md:h-20 transition-all duration-300">
+            {/* Logo */}
+            <a
+              href="#hero"
+              onClick={(e) => handleNavClick(e, "hero")}
+              className="text-xl font-display font-bold text-primary-600 dark:text-primary-400 hover:underline"
             >
-              {mobileMenuOpen ? (
+              {data.name.split(" ")[0]}
+            </a>
+
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden md:flex space-x-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className="relative text-sm font-medium transition-colors group"
+                >
+                  <span
+                    className={
+                      activeSection === item.id
+                        ? "text-primary-600 dark:text-primary-400"
+                        : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+                    }
+                  >
+                    {item.label}
+                  </span>
+                  {/* Active indicator dot */}
+                  {activeSection === item.id && (
+                    <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary-500" />
+                  )}
+                </a>
+              ))}
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              aria-label="Toggle menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {mobileMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Slide-out Menu */}
+        <div
+          className={`fixed inset-0 z-50 bg-white dark:bg-gray-900 transform transition-transform duration-300 ease-in-out ${
+            mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}
+        >
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              aria-label="Close menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {mobileMenuOpen && (
-          <nav className="md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-2 px-4">
+              </svg>
+            </button>
+          </div>
+          <nav className="flex flex-col items-center justify-center h-full space-y-6 text-lg font-medium">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
                 onClick={(e) => handleNavClick(e, item.id)}
-                className={`block py-2 text-sm font-medium transition-colors ${
+                className={`block py-2 ${
                   activeSection === item.id
-                    ? "text-blue-600 dark:text-blue-400"
-                    : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    ? "text-primary-600 dark:text-primary-400"
+                    : "text-gray-700 dark:text-gray-300"
                 }`}
               >
                 {item.label}
               </a>
             ))}
           </nav>
-        )}
+        </div>
       </header>
 
-      {/* Dark Mode Toggle – with hydration-safe icon */}
+      {/* Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-white/90 dark:bg-gray-800 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
         aria-label="Toggle dark mode"
       >
         {mounted ? (darkMode ? "☀️" : "🌙") : "🌓"}
@@ -311,40 +349,55 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
           aria-label="Back to top"
         >
           ↑
         </button>
       )}
 
-      <main className="container mx-auto px-4 py-12 max-w-4xl">
-        {/* Hero Section */}
+      <main className="container mx-auto px-4 py-12 max-w-5xl">
+        {/* Hero Section – two‑column layout */}
         <section
           id="hero"
-          className="text-center mb-16 animate-fade-in scroll-mt-24"
+          className="grid md:grid-cols-2 gap-12 items-center mb-20 animate-fade-in scroll-mt-24"
         >
-          <div className="flex justify-center mb-6">
-            <Image
-              src="/images/profile.jpg"
-              alt={data.name}
-              width={128}
-              height={128}
-              className="rounded-full border-4 border-blue-500 shadow-lg"
-            />
+          {/* Left column – text */}
+          <div className="text-center md:text-left">
+            <div className="inline-block px-3 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium mb-4">
+              Elder in Training
+            </div>
+            <h1 className="text-4xl md:text-5xl font-display font-bold mb-2 text-gray-900 dark:text-white">
+              {data.name}
+            </h1>
+            <p className="text-xl text-primary-600 dark:text-primary-400 mb-4 font-medium">
+              {data.tagline}
+            </p>
+            <div className="space-y-4">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {data.about}
+              </p>
+              <blockquote className="italic border-l-4 border-primary-500 pl-4 text-gray-600 dark:text-gray-400">
+                {data.mission}
+              </blockquote>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-2 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {data.name}
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
-            {data.tagline}
-          </p>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto">
-            {data.about}
-          </p>
-          <blockquote className="italic mt-6 border-l-4 border-blue-500 pl-4 text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
-            {data.mission}
-          </blockquote>
+
+          {/* Right column – image */}
+          <div className="relative">
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-amber-400 to-yellow-500 blur-md opacity-70"></div>
+            <div className="relative rounded-full border-4 border-amber-500 shadow-lg">
+              <Image
+                src="/images/profile.webp"
+                alt={data.name}
+                width={280}
+                height={280}
+                className="rounded-full object-cover animate-float"
+                style={{ width: "auto", height: "auto" }}
+                loading="eager"
+              />
+            </div>
+          </div>
         </section>
 
         {/* Dedication */}
@@ -360,7 +413,7 @@ export default function Home() {
           </section>
         )}
 
-        {/* Sections – unchanged */}
+        {/* Sections – cards redesigned */}
         {(data.sections as Section[]).map((section, idx) => {
           const sectionId =
             section.type === "devotion-list"
@@ -373,7 +426,7 @@ export default function Home() {
               className="mb-16 animate-fade-in scroll-mt-24"
               style={{ animationDelay: `${idx * 100}ms` }}
             >
-              <h2 className="text-3xl font-bold border-b-2 border-blue-200 dark:border-blue-700 pb-2 mb-6 inline-block">
+              <h2 className="text-3xl font-display font-bold border-b-2 border-primary-200 dark:border-primary-800 pb-2 mb-6 inline-block">
                 {section.title}
               </h2>
 
@@ -388,83 +441,86 @@ export default function Home() {
               )}
 
               {isCardsSection(section) && (
-                <div className="space-y-6">
+                <div className="grid grid-cols-1 gap-6">
                   {(section.items as PortfolioItem[]).map((item, i) => (
                     <div
                       key={i}
-                      className="border border-gray-100 dark:border-gray-800 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800"
+                      className="group relative bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-primary-500 hover:scale-[1.01]"
                     >
-                      <h3 className="text-xl font-semibold mb-2">
-                        {getTitle(item)}
-                      </h3>
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white flex items-center gap-2">
+                          <span className="text-primary-500">✦</span>{" "}
+                          {getTitle(item)}
+                        </h3>
 
-                      {hasDescription(item) && item.description && (
-                        <p className="text-gray-600 dark:text-gray-400 mb-3">
-                          {item.description}
-                        </p>
-                      )}
+                        {hasDescription(item) && item.description && (
+                          <p className="text-gray-600 dark:text-gray-400 mb-3">
+                            {item.description}
+                          </p>
+                        )}
 
-                      {hasLink(item) && (
-                        <a
-                          href={item.link}
-                          className="inline-block mt-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
-                        >
-                          Learn more →
-                        </a>
-                      )}
+                        {hasLink(item) && (
+                          <a
+                            href={item.link}
+                            className="inline-block mt-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium transition"
+                          >
+                            Learn more →
+                          </a>
+                        )}
 
-                      {hasShareOptions(item) && (
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {item.shareOptions.map((opt, j) => (
-                            <a
-                              key={j}
-                              href={opt.url}
-                              className="inline-block bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-3 py-1 rounded-full text-sm transition focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            >
-                              {opt.label}
-                            </a>
-                          ))}
-                        </div>
-                      )}
+                        {hasShareOptions(item) && (
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {item.shareOptions.map((opt, j) => (
+                              <a
+                                key={j}
+                                href={opt.url}
+                                className="inline-block bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-3 py-1 rounded-full text-sm transition"
+                              >
+                                {opt.label}
+                              </a>
+                            ))}
+                          </div>
+                        )}
 
-                      {hasEvents(item) && (
-                        <div className="mt-4 space-y-3">
-                          {item.events.map((event, k) => (
-                            <div
-                              key={k}
-                              className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
-                            >
-                              <p className="font-medium">{event.name}</p>
-                              <p className="text-sm text-gray-500 dark:text-gray-400">
-                                {event.date}
-                              </p>
-                              <p className="text-gray-600 dark:text-gray-300">
-                                {event.description}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                        {hasEvents(item) && (
+                          <div className="mt-4 space-y-3">
+                            {item.events.map((event, k) => (
+                              <div
+                                key={k}
+                                className="bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+                              >
+                                <p className="font-medium">{event.name}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                  {event.date}
+                                </p>
+                                <p className="text-gray-600 dark:text-gray-300">
+                                  {event.description}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
 
-                      {hasImages(item) && (
-                        <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
-                          {item.images.map((src, k) => (
-                            <div
-                              key={k}
-                              className="relative h-32 w-32 shrink-0 rounded-lg overflow-hidden cursor-pointer group"
-                              onClick={() => openImageModal(src)}
-                            >
-                              <Image
-                                src={src}
-                                alt={`${getTitle(item)} image ${k + 1}`}
-                                fill
-                                sizes="128px"
-                                className="object-cover transition duration-300 group-hover:scale-105"
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                        {hasImages(item) && (
+                          <div className="mt-4 flex gap-2 overflow-x-auto pb-2">
+                            {item.images.map((src, k) => (
+                              <div
+                                key={k}
+                                className="relative h-32 w-32 shrink-0 rounded-lg overflow-hidden cursor-pointer group"
+                                onClick={() => openImageModal(src)}
+                              >
+                                <Image
+                                  src={src}
+                                  alt={`${getTitle(item)} image ${k + 1}`}
+                                  fill
+                                  sizes="128px"
+                                  className="object-cover transition duration-300 group-hover:scale-105"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -474,7 +530,7 @@ export default function Home() {
                 <div className="text-center mt-8">
                   <button
                     onClick={openListModal}
-                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-6 rounded-lg transition transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   >
                     View All 30‑Day Devotions →
                   </button>
@@ -484,7 +540,7 @@ export default function Home() {
           );
         })}
 
-        {/* Modals – unchanged */}
+        {/* Modal for single devotion detail */}
         {isDetailModalOpen && selectedDevotion && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
@@ -547,6 +603,7 @@ export default function Home() {
           </div>
         )}
 
+        {/* Modal for the list of all devotions */}
         {isListModalOpen && devotionSection && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
@@ -638,102 +695,7 @@ export default function Home() {
             </div>
           </div>
         )}
-        {/* Contact Section */}
-        <section id="contact" className="mb-16 animate-fade-in scroll-mt-24">
-          {/* Banner */}
-          <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-xl text-center mb-8">
-            <p className="text-lg font-medium">I’d love to hear from you! 👋</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              Whether it&apos;s a project, collaboration, or just a hello.
-            </p>
-          </div>
 
-          <h2 className="text-3xl font-bold border-b-2 border-blue-200 dark:border-blue-700 pb-2 mb-6 inline-block">
-            📬 Contact & Booking
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* WhatsApp */}
-            <a
-              href="https://wa.me/254705001193?text=Hello%20Stephen%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 p-6 bg-green-50 dark:bg-green-900/20 rounded-xl shadow-sm hover:shadow-md transition group"
-            >
-              <span className="text-4xl group-hover:scale-110 transition">
-                📱
-              </span>
-              <div>
-                <h3 className="text-xl font-semibold">WhatsApp</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Send me a message – I&apos;ll reply as soon as possible.
-                </p>
-                <span className="text-sm text-green-600 dark:text-green-400">
-                  +254 705 001 193
-                </span>
-              </div>
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:stevemagare4@gmail.com?subject=Inquiry%20from%20your%20portfolio&body=Hello%20Stephen%2C%0A%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20..."
-              className="flex items-center gap-4 p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl shadow-sm hover:shadow-md transition group"
-            >
-              <span className="text-4xl group-hover:scale-110 transition">
-                📧
-              </span>
-              <div>
-                <h3 className="text-xl font-semibold">Email</h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  Write to me for any inquiries or collaborations.
-                </p>
-                <span className="text-sm text-blue-600 dark:text-blue-400">
-                  stevemagare4@gmail.com
-                </span>
-              </div>
-            </a>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex justify-center gap-6 mt-10">
-            <a
-              href="https://github.com/maogast"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl hover:scale-110 transition transform"
-              title="GitHub"
-            >
-              🐙
-            </a>
-            <a
-              href="https://linkedin.com/in/your-username"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl hover:scale-110 transition transform"
-              title="LinkedIn"
-            >
-              🔗
-            </a>
-            <a
-              href="https://twitter.com/your-username"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl hover:scale-110 transition transform"
-              title="Twitter"
-            >
-              🐦
-            </a>
-            <a
-              href="https://magaredev.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl hover:scale-110 transition transform"
-              title="Portfolio"
-            >
-              🌐
-            </a>
-          </div>
-        </section>
         <footer className="text-center text-gray-500 dark:text-gray-400 text-sm mt-20 pt-8 border-t dark:border-gray-800">
           © {new Date().getFullYear()} {data.name} – Master Guide Portfolio
         </footer>

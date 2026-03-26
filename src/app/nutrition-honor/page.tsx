@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import data from "@/data/nutritionHonor.json";
 
 type SectionContent =
@@ -29,72 +29,11 @@ function slugify(text: string) {
     .replace(/[^\w-]/g, "");
 }
 
-// ShareButtons component now receives pageUrl as a prop
-const ShareButtons = ({
-  title,
-  copied,
-  onCopy,
-  pageUrl,
-}: {
-  title: string;
-  copied: boolean;
-  onCopy: () => void;
-  pageUrl: string;
-}) => {
-  const shareText = `📖 Nutrition Honor Study Guide – ${title}\n\nCheck out this complete study guide for the Pathfinder Nutrition Honor. ${pageUrl}`;
-
-  return (
-    <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-      <span className="text-sm text-gray-500 dark:text-gray-400 mr-2 self-center">
-        Share this page:
-      </span>
-      <a
-        href={`https://wa.me/?text=${encodeURIComponent(shareText)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-sm hover:bg-green-200 dark:hover:bg-green-800/40 transition"
-      >
-        📱 WhatsApp
-      </a>
-      <a
-        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm hover:bg-blue-200 dark:hover:bg-blue-800/40 transition"
-      >
-        🐦 Twitter
-      </a>
-      <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full text-sm hover:bg-indigo-200 dark:hover:bg-indigo-800/40 transition"
-      >
-        📘 Facebook
-      </a>
-      <a
-        href={`mailto:?subject=${encodeURIComponent("Nutrition Honor Study Guide")}&body=${encodeURIComponent(shareText)}`}
-        className="inline-flex items-center gap-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition"
-      >
-        📧 Email
-      </a>
-      <button
-        onClick={onCopy}
-        className="inline-flex items-center gap-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition"
-      >
-        🔗 {copied ? "Copied!" : "Copy Link"}
-      </button>
-    </div>
-  );
-};
-
 export default function NutritionHonorPage() {
   const [mounted, setMounted] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [pageUrl, setPageUrl] = useState(""); // ← new state for client‑side URL
+  const [copiedSection, setCopiedSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   // Dark mode
@@ -110,8 +49,6 @@ export default function NutritionHonorPage() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
-    // Set the actual page URL only on the client
-    setPageUrl(window.location.href);
   }, []);
 
   useEffect(() => {
@@ -123,14 +60,10 @@ export default function NutritionHonorPage() {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Scroll progress
+  // Scroll events
   useEffect(() => {
     const handleScroll = () => {
-      const winScroll = window.scrollY;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (winScroll / height) * 100;
-      setScrollProgress(scrolled);
-      setShowBackToTop(winScroll > 300);
+      setShowBackToTop(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -147,19 +80,11 @@ export default function NutritionHonorPage() {
           }
         });
       },
-      { threshold: 0.3, rootMargin: "-20% 0px -70% 0px" },
+      { threshold: 0.3, rootMargin: "-20% 0px -70% 0px" }
     );
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
-
-  const handleCopyLink = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -175,7 +100,6 @@ export default function NutritionHonorPage() {
     index: idx,
   }));
 
-  // Map section titles to emojis
   const getSectionEmoji = (title: string): string => {
     if (title.includes("Food Pyramid")) return "🥗";
     if (title.includes("Vegetarian Diets")) return "🌱";
@@ -187,6 +111,38 @@ export default function NutritionHonorPage() {
     if (title.includes("Flour")) return "🌾";
     if (title.includes("RDA")) return "📊";
     return "📘";
+  };
+
+  const copySectionContent = (section: Section) => {
+    // Extract all text from a section (simple version – could be improved)
+    const extractText = (content: SectionContent[]): string => {
+      let text = "";
+      for (const item of content) {
+        if (item.type === "text") text += item.value + "\n";
+        else if (item.type === "list") text += item.items.join("\n") + "\n";
+        else if (item.type === "table") {
+          const headers = item.headers.join(" | ");
+          const rows = item.rows.map((row) => row.join(" | ")).join("\n");
+          text += `${headers}\n${rows}\n`;
+        } else if (item.type === "subheading") text += item.value + "\n";
+      }
+      return text;
+    };
+
+    let sectionText = `${section.title}\n\n`;
+    if (section.subsections) {
+      for (const sub of section.subsections) {
+        if (sub.title) sectionText += `${sub.title}\n`;
+        if (sub.content) sectionText += extractText(sub.content);
+        sectionText += "\n";
+      }
+    } else if (section.content) {
+      sectionText += extractText(section.content);
+    }
+
+    navigator.clipboard.writeText(sectionText);
+    setCopiedSection(section.title);
+    setTimeout(() => setCopiedSection(null), 2000);
   };
 
   const renderContent = (content: SectionContent) => {
@@ -208,21 +164,15 @@ export default function NutritionHonorPage() {
               <thead>
                 <tr className="bg-gray-100 dark:bg-gray-800">
                   {content.headers.map((header, idx) => (
-                    <th
-                      key={idx}
-                      className="border px-4 py-2 text-left font-semibold"
-                    >
+                    <th key={idx} className="border px-4 py-2 text-left font-semibold">
                       {header}
                     </th>
                   ))}
-                </tr>
+                 </tr>
               </thead>
               <tbody>
                 {content.rows.map((row, rowIdx) => (
-                  <tr
-                    key={rowIdx}
-                    className="border-b hover:bg-gray-50 dark:hover:bg-gray-800/50 transition"
-                  >
+                  <tr key={rowIdx} className="border-b hover:bg-gray-50 dark:hover:bg-gray-800/50 transition">
                     {row.map((cell, cellIdx) => (
                       <td key={cellIdx} className="border px-4 py-2">
                         {cell}
@@ -235,34 +185,26 @@ export default function NutritionHonorPage() {
           </div>
         );
       case "subheading":
-        return (
-          <h3 className="text-xl font-semibold mt-4 mb-2">{content.value}</h3>
-        );
+        return <h3 className="text-xl font-semibold mt-4 mb-2">{content.value}</h3>;
       default:
         return null;
     }
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 text-gray-800 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Head>
-        <title>Nutrition Honor – Study Guide | Stephen Ogaro</title>
+        <title>Nutrition Honor – Study Guide | Danstan Toel</title>
         <meta
           name="description"
           content="Complete study guide for the Pathfinder Nutrition Honor, covering food pyramid, vegetarian diets, vitamins, and more."
         />
       </Head>
 
-      {/* Scroll Progress Bar */}
-      <div
-        className="fixed top-0 left-0 w-full h-1 bg-blue-500 z-50 transition-all duration-300"
-        style={{ width: `${scrollProgress}%` }}
-      />
-
       {/* Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
-        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
         aria-label="Toggle dark mode"
       >
         {mounted ? (darkMode ? "☀️" : "🌙") : "🌓"}
@@ -272,126 +214,118 @@ export default function NutritionHonorPage() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary-600 text-white shadow-lg hover:bg-primary-700 transition-all focus:outline-none focus:ring-2 focus:ring-primary-500"
           aria-label="Back to top"
         >
           ↑
         </button>
       )}
 
-      {/* Table of Contents (Sticky) */}
-      <div className="hidden lg:block fixed left-4 top-24 w-64 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg p-4 z-30 border border-gray-200 dark:border-gray-700">
-        <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-          <span>📑</span> Contents
-        </h3>
-        <ul className="space-y-2 text-sm">
-          {tocItems.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className={`text-left hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 ${
-                  activeSection === item.id
-                    ? "text-blue-600 dark:text-blue-400 font-medium"
-                    : ""
-                }`}
-              >
-                <span className="text-base">{getSectionEmoji(item.title)}</span>
-                <span className="line-clamp-2">{item.title}</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+      {/* Sticky Header with Section Pills */}
+      <div className="sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div className="container mx-auto px-4 max-w-4xl py-3">
+          <div className="flex items-center justify-between mb-2">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition"
+            >
+              ← Home
+            </Link>
+            <button
+              onClick={() => window.print()}
+              className="text-sm text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition"
+            >
+              🖨️ Print
+            </button>
+          </div>
+          <div className="overflow-x-auto pb-1">
+            <div className="flex gap-2 min-w-max">
+              {tocItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors whitespace-nowrap ${
+                    activeSection === item.id
+                      ? "bg-primary-600 text-white"
+                      : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                  }`}
+                >
+                  {item.title}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
       <main className="container mx-auto px-4 py-12 max-w-4xl">
-        {/* Hero Section with Image */}
-        <div className="text-center mb-12 animate-fade-in">
-          <div className="relative w-full max-w-md mx-auto mb-6">
-            <Image
-              src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop"
-              alt="Healthy food pyramid illustration"
-              width={600}
-              height={400}
-              className="rounded-2xl shadow-xl object-cover"
-              loading="eager" // improves LCP
-            />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4 bg-linear-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">
             {data.title}
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A complete study guide for the Pathfinder Nutrition Honor. Based on
-            the official requirements and the SDA Zimmerman Nutrition Honor
-            document.
+            A complete study guide for the Pathfinder Nutrition Honor. Based on the official requirements and the SDA Zimmerman Nutrition Honor document.
           </p>
           <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
             📅 Taught on: March 22nd & 25th 2026
           </div>
         </div>
 
-        <ShareButtons
-          title="Nutrition Honor Study Guide"
-          copied={copied}
-          onCopy={handleCopyLink}
-          pageUrl={pageUrl}
-        />
-
-        {/* Sections */}
+        {/* Sections – staggered cards with copy button */}
         {sections.map((section, idx) => {
           const sectionId = slugify(section.title);
           const emoji = getSectionEmoji(section.title);
+          const isEven = idx % 2 === 0;
           return (
             <section
               key={idx}
               id={sectionId}
-              ref={(el) => {
-                if (el) sectionRefs.current[sectionId] = el;
-              }}
-              className="mb-10 scroll-mt-24"
+              ref={(el) => { if (el) sectionRefs.current[sectionId] = el; }}
+              className="mb-12 scroll-mt-24"
             >
-              <div className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
-                {/* Decorative gradient bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 to-purple-500"></div>
-                <div className="p-6">
-                  <h2 className="text-2xl font-bold flex items-center gap-2 mb-4">
-                    <span className="text-2xl">{emoji}</span>
-                    <span>{section.title}</span>
-                  </h2>
-                  {section.subsections
-                    ? section.subsections.map((sub, subIdx) => (
+              <div className={`flex flex-col ${isEven ? "md:flex-row" : "md:flex-row-reverse"} gap-6 items-start group`}>
+                {/* Large Emoji */}
+                <div className="shrink-0 text-6xl md:text-7xl text-primary-500 dark:text-primary-400">
+                  {emoji}
+                </div>
+                {/* Content Card */}
+                <div className="flex-1 bg-white dark:bg-gray-800 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h2 className="text-2xl font-display font-bold text-gray-800 dark:text-white">
+                        {section.title}
+                      </h2>
+                      <button
+                        onClick={() => copySectionContent(section)}
+                        className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+                      >
+                        {copiedSection === section.title ? "Copied!" : "📋 Copy section"}
+                      </button>
+                    </div>
+                    {section.subsections ? (
+                      section.subsections.map((sub, subIdx) => (
                         <div key={subIdx} className="mb-6">
-                          {sub.title && (
-                            <h3 className="text-xl font-semibold mb-2">
-                              {sub.title}
-                            </h3>
-                          )}
-                          {sub.content &&
-                            sub.content.map((c, cIdx) => (
-                              <div key={cIdx}>{renderContent(c)}</div>
-                            ))}
+                          {sub.title && <h3 className="text-xl font-semibold mb-2">{sub.title}</h3>}
+                          {sub.content && sub.content.map((c, cIdx) => (
+                            <div key={cIdx}>{renderContent(c)}</div>
+                          ))}
                         </div>
                       ))
-                    : section.content
-                      ? section.content.map((c, cIdx) => (
-                          <div key={cIdx}>{renderContent(c)}</div>
-                        ))
-                      : null}
+                    ) : section.content ? (
+                      section.content.map((c, cIdx) => (
+                        <div key={cIdx}>{renderContent(c)}</div>
+                      ))
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </section>
           );
         })}
 
-        <ShareButtons
-          title="Nutrition Honor Study Guide"
-          copied={copied}
-          onCopy={handleCopyLink}
-          pageUrl={pageUrl}
-        />
-
         <footer className="text-center text-gray-500 dark:text-gray-400 text-sm mt-20 pt-8 border-t dark:border-gray-800">
-          © {new Date().getFullYear()} Stephen Magare Ogaro – Master Guide
-          Portfolio
+          © {new Date().getFullYear()} Danstan Toel – Master Guide Portfolio
         </footer>
       </main>
     </div>
