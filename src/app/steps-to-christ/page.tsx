@@ -13,7 +13,43 @@ type Chapter = {
   date?: string;
 };
 
-// ShareButtons component – defined outside the main component to avoid re‑creation on each render
+// Helper to flatten the imported data into a flat array of Chapter
+function normalizeChapters(importedData: unknown): Chapter[] {
+  const flat: Chapter[] = [];
+
+  const flatten = (item: unknown) => {
+    if (Array.isArray(item)) {
+      for (const element of item) {
+        flatten(element);
+      }
+    } else if (item && typeof item === "object") {
+      // Check if it looks like a Chapter
+      const maybe = item as Partial<Chapter>;
+      if (
+        typeof maybe.chapter === "number" &&
+        typeof maybe.title === "string"
+      ) {
+        flat.push({
+          chapter: maybe.chapter,
+          title: maybe.title,
+          quote: maybe.quote ?? "",
+          summary: maybe.summary ?? "",
+          date: maybe.date,
+        });
+      } else {
+        // If it's an object but not a Chapter, recursively check its values
+        for (const value of Object.values(item)) {
+          flatten(value);
+        }
+      }
+    }
+  };
+
+  flatten(importedData);
+  return flat;
+}
+
+// ShareButtons component – unchanged
 const ShareButtons = ({
   chapter,
   copied,
@@ -72,13 +108,14 @@ const ShareButtons = ({
 };
 
 export default function StepsToChristPage() {
+  // Flatten the imported data once
+  const chapters: Chapter[] = normalizeChapters(data);
+
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const [copied, setCopied] = useState(false);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const chapters: Chapter[] = data;
 
   // Dark mode – lazy initializer
   const [darkMode, setDarkMode] = useState(() => {
@@ -90,7 +127,6 @@ export default function StepsToChristPage() {
     return false;
   });
 
-  // Track if component is mounted (to avoid hydration mismatch)
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -161,7 +197,6 @@ export default function StepsToChristPage() {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  // Copy link handler
   const handleCopyLink = () => {
     if (typeof window !== "undefined") {
       navigator.clipboard.writeText(window.location.href);
