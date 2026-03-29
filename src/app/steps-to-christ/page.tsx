@@ -208,7 +208,7 @@ export default function StepsToChristPage() {
   return (
     <div className="min-h-screen bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
       <Head>
-        <title>Steps to Christ – Chapter Summaries | Stephen Ogaro</title>
+        <title>Steps to Christ – Chapter Summaries | Danstan Toel</title>
         <meta
           name="description"
           content="Complete summaries of each chapter from Steps to Christ by Ellen G. White, with reflections and quotes."
@@ -237,8 +237,8 @@ export default function StepsToChristPage() {
             Steps to Christ
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            Chapter summaries prepared as a spiritual resource for Master Guide
-            growth. May these truths deepen your walk with God.
+            Journey through timeless truths. These summaries are crafted to
+            enrich your spiritual walk, providing insights and reflections on each chapter of Ellen G. White&apos;s classic, &quot;Steps to Christ.&quot; Whether you&apos;re new to the book or revisiting it, these summaries offer a fresh perspective on its profound messages.
           </p>
         </div>
 
