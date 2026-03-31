@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense, useCallback } from "react";
 import Head from "next/head";
+import { useSearchParams, useRouter } from "next/navigation";
 import data from "@/data/stepsToChrist.json";
 import Link from "next/link";
 
@@ -13,7 +14,7 @@ type Chapter = {
   date?: string;
 };
 
-// Helper to flatten the imported data into a flat array of Chapter
+// Helper to flatten the imported data
 function normalizeChapters(importedData: unknown): Chapter[] {
   const flat: Chapter[] = [];
 
@@ -23,7 +24,6 @@ function normalizeChapters(importedData: unknown): Chapter[] {
         flatten(element);
       }
     } else if (item && typeof item === "object") {
-      // Check if it looks like a Chapter
       const maybe = item as Partial<Chapter>;
       if (
         typeof maybe.chapter === "number" &&
@@ -37,7 +37,6 @@ function normalizeChapters(importedData: unknown): Chapter[] {
           date: maybe.date,
         });
       } else {
-        // If it's an object but not a Chapter, recursively check its values
         for (const value of Object.values(item)) {
           flatten(value);
         }
@@ -49,7 +48,11 @@ function normalizeChapters(importedData: unknown): Chapter[] {
   return flat;
 }
 
-// ShareButtons component – unchanged
+function getChapterUrl(chapterNumber: number): string {
+  const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
+  return `${baseUrl}/steps-to-christ?chapter=${chapterNumber}`;
+}
+
 const ShareButtons = ({
   chapter,
   copied,
@@ -59,7 +62,7 @@ const ShareButtons = ({
   copied: boolean;
   onCopy: () => void;
 }) => {
-  const pageUrl = typeof window !== "undefined" ? window.location.href : "";
+  const pageUrl = getChapterUrl(chapter.chapter);
   const shareText = `📖 Steps to Christ – Chapter ${chapter.chapter}: ${chapter.title}\n\n“${chapter.quote.slice(0, 120)}...”\n\nRead the full summary at: ${pageUrl}`;
 
   return (
@@ -107,17 +110,19 @@ const ShareButtons = ({
   );
 };
 
-export default function StepsToChristPage() {
-  // Flatten the imported data once
+function StepsToChristContent() {
   const chapters: Chapter[] = normalizeChapters(data);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const [selectedChapter, setSelectedChapter] = useState<Chapter | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const [copied, setCopied] = useState(false);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const hasOpenedFromUrl = useRef(false); // Track if we've already opened from URL
 
-  // Dark mode – lazy initializer
+  // Dark mode
   const [darkMode, setDarkMode] = useState(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("darkMode");
@@ -134,7 +139,6 @@ export default function StepsToChristPage() {
     setMounted(true);
   }, []);
 
-  // Apply dark mode class and store preference
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -144,7 +148,6 @@ export default function StepsToChristPage() {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
   }, [darkMode]);
 
-  // Manage body scroll when modal is open
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = "hidden";
@@ -156,7 +159,7 @@ export default function StepsToChristPage() {
     };
   }, [isModalOpen]);
 
-  // Intersection Observer for scroll animations
+  // Intersection Observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -168,7 +171,7 @@ export default function StepsToChristPage() {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.1 }
     );
 
     cardRefs.current.forEach((card) => {
@@ -178,32 +181,49 @@ export default function StepsToChristPage() {
     return () => observer.disconnect();
   }, []);
 
-  const openModal = (chapter: Chapter) => {
+  // Define openModal and closeModal with useCallback to stabilize them
+  const openModal = useCallback((chapter: Chapter) => {
     setSelectedChapter(chapter);
     setIsModalOpen(true);
-  };
+    router.replace(`?chapter=${chapter.chapter}`, { scroll: false });
+  }, [router]);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     setSelectedChapter(null);
-  };
+    router.replace("/steps-to-christ", { scroll: false });
+  }, [router]);
 
-  // Close modal on Escape key
+  // Handle URL parameter on initial load
+  useEffect(() => {
+    const chapterParam = searchParams.get("chapter");
+    if (chapterParam && !hasOpenedFromUrl.current) {
+      const chapterNumber = parseInt(chapterParam, 10);
+      const chapter = chapters.find((c) => c.chapter === chapterNumber);
+      if (chapter) {
+        hasOpenedFromUrl.current = true;
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        openModal(chapter);
+      }
+    }
+  }, [searchParams, chapters, openModal]);
+
+  // Close modal on Escape
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeModal();
     };
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
-  }, []);
+  }, [closeModal]);
 
-  const handleCopyLink = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
+  const handleCopyLink = useCallback(() => {
+    if (typeof window !== "undefined" && selectedChapter) {
+      navigator.clipboard.writeText(getChapterUrl(selectedChapter.chapter));
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
-  };
+  }, [selectedChapter]);
 
   return (
     <div className="min-h-screen bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
@@ -215,7 +235,6 @@ export default function StepsToChristPage() {
         />
       </Head>
 
-      {/* Dark Mode Toggle */}
       <button
         onClick={() => setDarkMode(!darkMode)}
         className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -225,7 +244,6 @@ export default function StepsToChristPage() {
       </button>
 
       <main className="container mx-auto px-4 py-12 max-w-5xl">
-        {/* Hero Section */}
         <div className="text-center mb-16 animate-fade-in">
           <Link
             href="/"
@@ -242,7 +260,6 @@ export default function StepsToChristPage() {
           </p>
         </div>
 
-        {/* Grid of Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {chapters.map((chapter, index) => (
             <div
@@ -257,7 +274,6 @@ export default function StepsToChristPage() {
               `}
             >
               <div className="group relative h-full border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-800 hover:-translate-y-1">
-                {/* Decorative gradient bar */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-blue-500 to-purple-500"></div>
 
                 <div className="p-6 flex flex-col h-full">
@@ -287,7 +303,6 @@ export default function StepsToChristPage() {
           ))}
         </div>
 
-        {/* Modal */}
         {isModalOpen && selectedChapter && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 transition-opacity"
@@ -324,7 +339,6 @@ export default function StepsToChristPage() {
                   ))}
                 </div>
 
-                {/* Share buttons */}
                 <ShareButtons
                   chapter={selectedChapter}
                   copied={copied}
@@ -346,5 +360,13 @@ export default function StepsToChristPage() {
         </footer>
       </main>
     </div>
+  );
+}
+
+export default function StepsToChristPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <StepsToChristContent />
+    </Suspense>
   );
 }
